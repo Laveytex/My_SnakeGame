@@ -4,7 +4,6 @@
 #include "SnakeBase.h"
 #include "SnakeElementBase.h"
 #include "Interacteble.h"
-#include "Components/StaticMeshComponent.h"
 
 
 
@@ -46,16 +45,11 @@ void ASnakeBase::AddSnakeElement(int ElementNum)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("SetFirstElemType"));
 			NewSnakeElem->SetFirstElementType();
-			//NewSnakeElem->MeshComponent-> OnComponentBeginOverlap.AddDynamic(this, &ASnakeElementBase::HandleBeginOverlap);
-			
 		}
 		UE_LOG(LogTemp, Warning, TEXT("ElementAdded"));
-		
-		
 	}
-	UE_LOG(LogTemp, Warning, TEXT("ElemNum: %d"), SnakeElements.Num());
-	//UE_LOG(LogTemp, Warning, TEXT("Collision: %d"),NewSnakeElem->GetActorEnableCollision());
 	
+	UE_LOG(LogTemp, Warning, TEXT("ElemNum: %d"), SnakeElements.Num());
 }
 
 void ASnakeBase::Move()
