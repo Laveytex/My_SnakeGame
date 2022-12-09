@@ -20,7 +20,7 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	float CameraHaight = 1000.f;
 	
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, VisibleDefaultsOnly)
 	UCameraComponent* PawnCamera;
 
 	UPROPERTY(BlueprintReadWrite)

@@ -14,14 +14,12 @@ ASnakeElementBase::ASnakeElementBase()
 	MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
 	MeshComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	MeshComponent->SetCollisionResponseToAllChannels(ECR_Overlap);
-	
 }
 
 // Called when the game starts or when spawned
 void ASnakeElementBase::BeginPlay()
 {
 	Super::BeginPlay();
-	//MeshComponent->OnComponentBeginOverlap.AddDynamic(this, &ASnakeElementBase::HandleBeginOverlap);
 }
 
 // Called every frame

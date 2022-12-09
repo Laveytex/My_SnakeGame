@@ -4,13 +4,17 @@
 #include "Food.h"
 #include "SnakeBase.h"
 #include "Engine/Classes/Components/StaticMeshComponent.h"
+#include "HoverComponent.h"
 
 // Sets default values
 AFood::AFood()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+	MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
+	RootComponent = MeshComponent;
+	HoverComponent = CreateDefaultSubobject<UHoverComponent>(TEXT("HoverComponent"));
+	
 }
 
 // Called when the game starts or when spawned
@@ -24,7 +28,6 @@ void AFood::BeginPlay()
 void AFood::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void AFood::Interact(AActor* Interactor,bool bIsHead)
@@ -42,4 +45,5 @@ void AFood::Interact(AActor* Interactor,bool bIsHead)
 	}
 	
 }
+
 

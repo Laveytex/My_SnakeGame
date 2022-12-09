@@ -7,6 +7,10 @@
 #include "GameFramework/Actor.h"
 #include "Food.generated.h"
 
+
+class UStaticMeshComponent;
+class UHoverComponent;
+
 UCLASS()
 class MY_SNAKEGAME_API AFood : public AActor, public IInteracteble
 {
@@ -15,7 +19,11 @@ class MY_SNAKEGAME_API AFood : public AActor, public IInteracteble
 public:	
 	// Sets default values for this actor's properties
 	AFood();
-
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UStaticMeshComponent* MeshComponent;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UHoverComponent* HoverComponent;
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
