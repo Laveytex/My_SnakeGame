@@ -9,7 +9,7 @@ UHoverComponent::UHoverComponent()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-	Parent = GetOwner();
+	SnakeOwner = GetOwner();
 }
 
 
@@ -17,8 +17,8 @@ UHoverComponent::UHoverComponent()
 void UHoverComponent::BeginPlay()
 {
 	Super::BeginPlay();
-	StartPosition = Parent->GetActorLocation();
-	StartRotation = Parent->GetActorRotation();
+	StartPosition = SnakeOwner->GetActorLocation();
+	StartRotation = SnakeOwner->GetActorRotation();
 }
 
 
@@ -28,7 +28,7 @@ void UHoverComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	//y = [amplitude] * sin ( ( [frequency] * x ) – [phase] )
-	if(Parent)
+	if(SnakeOwner)
 	{
 		FVector NewLocation = StartPosition;
 		FRotator NewRotation = StartRotation;
@@ -42,7 +42,7 @@ void UHoverComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 		
 		RunnningTime += DeltaTime;
 		
-		Parent->SetActorLocationAndRotation(NewLocation, NewRotation);
+		SnakeOwner->SetActorLocationAndRotation(NewLocation, NewRotation);
 	}
 }
 

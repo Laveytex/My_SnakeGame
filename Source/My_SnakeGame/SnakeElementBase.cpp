@@ -26,13 +26,11 @@ void ASnakeElementBase::BeginPlay()
 void ASnakeElementBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 
 void ASnakeElementBase::SetFirstElementType_Implementation()
 {
-	UE_LOG(LogTemp, Warning, TEXT("DoImplementation"));
 	MeshComponent->OnComponentBeginOverlap.AddDynamic(this, &ASnakeElementBase::HandleBeginOverlap);
 }
 
@@ -47,9 +45,7 @@ void ASnakeElementBase::Interact(AActor* Interactor,bool bIsHead)
 
 void ASnakeElementBase::HandleBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	UE_LOG(LogTemp, Warning, TEXT("HandleBeginOverlap"));
-	
+{	
 	if (IsValid(SnakeOwner)) {
 		SnakeOwner->SnakeElementOverlap(this, OtherActor);
 	}
@@ -57,8 +53,6 @@ void ASnakeElementBase::HandleBeginOverlap(UPrimitiveComponent* OverlappedCompon
 
 void ASnakeElementBase::ToggleCollision()
 {
-	//UE_LOG(LogTemp, Warning, TEXT("CollisionToggle"));
-	
 	if(MeshComponent->GetCollisionEnabled()==ECollisionEnabled::NoCollision)
 	{
 		MeshComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
@@ -67,7 +61,6 @@ void ASnakeElementBase::ToggleCollision()
 	{
 		MeshComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
-	
 }
 
 

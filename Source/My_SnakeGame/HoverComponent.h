@@ -34,7 +34,7 @@ public:
 	
 	float RunnningTime;
 	
-	AActor* Parent = GetOwner();
+	AActor* SnakeOwner = GetOwner();
 	
 protected:
 	// Called when the game starts

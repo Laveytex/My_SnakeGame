@@ -38,8 +38,10 @@ public:
 	UPROPERTY()
 	EMovementDirection LastMoveDirection;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditAnywhere)
 	float MovementSpeed;
+
+	float Score;
 
 	bool bIsSetMove=false;
 	
@@ -57,4 +59,6 @@ public:
 
 	UFUNCTION()
 	void SnakeElementOverlap(ASnakeElementBase* OverlappedElement, AActor* Other);
+
+	
 };
