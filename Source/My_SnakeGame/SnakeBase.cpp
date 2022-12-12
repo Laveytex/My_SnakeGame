@@ -88,6 +88,7 @@ void ASnakeBase::Move()
 	SnakeElements[0]->AddActorWorldOffset(MovementVector);
 	SnakeElements[0]->ToggleCollision();
 
+	bIsSetMove = false;
 	
 }
 

@@ -40,6 +40,8 @@ public:
 
 	UPROPERTY(EditDefaultsOnly)
 	float MovementSpeed;
+
+	bool bIsSetMove=false;
 	
 protected:
 	// Called when the game starts or when spawned
