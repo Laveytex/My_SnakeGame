@@ -20,9 +20,6 @@ public:
 	ABoard();
 	UPROPERTY()
 	float BoardSize;
-	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	UStaticMeshComponent* MeshComponent;
 
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AWall> WallClass;

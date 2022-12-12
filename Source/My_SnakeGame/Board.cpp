@@ -12,8 +12,6 @@ ABoard::ABoard()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
-	RootComponent = MeshComponent;
 }
 
 // Called when the game starts or when spawned
@@ -43,7 +41,7 @@ void ABoard::SpawnFloor(int WallElementNum)
 			if(Random>5)
 			{
 				FVector NewLocation = FVector(i*WallDistants,j*WallDistants,-30);
-				AWall* NewWallElement = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation,FRotator(0));
+				AWall* NewWallElement = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation,FRotator());
 				NewWallElement->SetActorRelativeScale3D(FVector(0.3));
 				WallElements.Add(NewWallElement);
 			}
@@ -51,9 +49,9 @@ void ABoard::SpawnFloor(int WallElementNum)
 			else if(Random<5&&Random>2)
 			{
 				FVector NewLocation = FVector(i*WallDistants,j*WallDistants,0);
-				AWall* NewWallElement = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation,FRotator(0));
+				AWall* NewWallElement = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation,FRotator());
 				FVector NewLocation2 = FVector(i*WallDistants,j*WallDistants,-30);
-				AWall* NewWallElement2 = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation2,FRotator(0));
+				AWall* NewWallElement2 = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation2,FRotator());
 				NewWallElement->SetActorRelativeScale3D(FVector(0.29));
 				WallElements.Add(NewWallElement);
 			}
@@ -61,17 +59,12 @@ void ABoard::SpawnFloor(int WallElementNum)
 			else if(Random<2)
 			{
 				FVector NewLocation = FVector(i*WallDistants,j*WallDistants,0);
-				AWall* NewWallElement = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation,FRotator(0));
+				AWall* NewWallElement = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation,FRotator());
 				NewWallElement->SetActorRelativeScale3D(FVector(0.29));
 				NewWallElement->MeshComponent->SetVisibility(false);
 				WallElements.Add(NewWallElement);
 			}
 		}
-	}
-	for(int i=0;i<6;i++)
-	{
-		float Random = FMath::FRandRange(0,255);
-		
 	}
 }
 
