@@ -18,7 +18,7 @@ public:
 	// Sets default values for this pawn's properties
 	APlayerPawnBase();
 	UPROPERTY(BlueprintReadWrite)
-	float CameraHaight = 1000.f;
+	float CameraHaight = 600.f;
 	
 	UPROPERTY(BlueprintReadWrite, VisibleDefaultsOnly)
 	UCameraComponent* PawnCamera;

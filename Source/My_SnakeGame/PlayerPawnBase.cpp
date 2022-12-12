@@ -21,7 +21,7 @@ void APlayerPawnBase::BeginPlay()
 {
 	Super::BeginPlay();
 	SetActorRotation(FRotator(-90,0,0));
-	SetActorLocation(FVector(0,0,CameraHaight));
+	SetActorLocation(FVector(-15,0,CameraHaight));
 	CreateSnakeActor();
 }
 
@@ -35,7 +35,7 @@ void APlayerPawnBase::Tick(float DeltaTime)
 void APlayerPawnBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
+	
 	PlayerInputComponent->BindAxis("Vertical", this,&APlayerPawnBase::HandlePlayerVerticalInput);
 	PlayerInputComponent->BindAxis("Horizontal", this,&APlayerPawnBase::HandlePlayerHorizontalInput);
 }

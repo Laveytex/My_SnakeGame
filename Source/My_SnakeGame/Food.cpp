@@ -42,6 +42,10 @@ void AFood::Interact(AActor* Interactor,bool bIsHead)
 			Snake->Score=Snake->Score+10;
 			UE_LOG(LogTemp, Warning, TEXT("Score: %f"), Snake->Score);
 		}
+		float RandomX = FMath::FRandRange(-254,254);
+		float RandomY = FMath::FRandRange(-254,254);
+		FVector NewLocation = FVector(RandomX,RandomY,0);
+		GetWorld()->SpawnActor<AFood>(FoodClass,NewLocation, FRotator(0));
 		this->Destroy();
 	}
 }

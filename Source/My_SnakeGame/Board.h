@@ -3,28 +3,35 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Interacteble.h"
+#include "Wall.h"
 #include "GameFramework/Actor.h"
-#include "Food.generated.h"
+#include "Board.generated.h"
 
-
-class UStaticMeshComponent;
-class UHoverComponent;
+class UStaticMesh;
+class AWall;
 
 UCLASS()
-class MY_SNAKEGAME_API AFood : public AActor, public IInteracteble
+class MY_SNAKEGAME_API ABoard : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	AFood();
+	ABoard();
+	UPROPERTY()
+	float BoardSize;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UStaticMeshComponent* MeshComponent;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	UHoverComponent* HoverComponent;
+
 	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<AFood> FoodClass;
+	TSubclassOf<AWall> WallClass;
+
+	UPROPERTY(EditAnywhere)
+	float WallDistants;
+
+	UPROPERTY()
+	TArray<AWall*> WallElements;
 	
 protected:
 	// Called when the game starts or when spawned
@@ -34,5 +41,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void Interact(AActor* Interactor, bool bIsHead) override;
+	void SpawnFloor (int WallElementNum);
+	void SpawnBorder (int WallElementNum);
 };
+
+
+
