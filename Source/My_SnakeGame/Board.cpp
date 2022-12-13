@@ -41,7 +41,7 @@ void ABoard::SpawnFloor(int WallElementNum)
 			if(Random>5)
 			{
 				FVector NewLocation = FVector(i*WallDistants,j*WallDistants,-30);
-				AWall* NewWallElement = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation,FRotator());
+				AWall* NewWallElement = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation,FRotator(0));
 				NewWallElement->SetActorRelativeScale3D(FVector(0.3));
 				WallElements.Add(NewWallElement);
 			}
@@ -49,9 +49,9 @@ void ABoard::SpawnFloor(int WallElementNum)
 			else if(Random<5&&Random>2)
 			{
 				FVector NewLocation = FVector(i*WallDistants,j*WallDistants,0);
-				AWall* NewWallElement = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation,FRotator());
+				AWall* NewWallElement = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation,FRotator(0));
 				FVector NewLocation2 = FVector(i*WallDistants,j*WallDistants,-30);
-				AWall* NewWallElement2 = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation2,FRotator());
+				AWall* NewWallElement2 = GetWorld()->SpawnActor<AWall>(WallClass,NewLocation2,FRotator(0));
 				NewWallElement->SetActorRelativeScale3D(FVector(0.29));
 				WallElements.Add(NewWallElement);
 			}
